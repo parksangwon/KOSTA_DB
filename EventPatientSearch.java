@@ -92,15 +92,15 @@ public class EventPatientSearch extends MouseAdapter implements ActionListener, 
 		}
 		// 이름으로 검색
 		if ( option.equals("NAME") ) {
-			sb.append("NAME LIKE " + "'%" + keyword + "%'");
+			sb.append("NAME LIKE " + "'%" + keyword + "%' ");
 		}
 		// 과목로 검색
 		else if ( option.equals("SUBJECT") ) {
-			sb.append("SUBJECT LIKE " + "'%" + keyword + "%'");
+			sb.append("SUBJECT LIKE " + "'%" + keyword + "%' ");
 		}
 		// 번호으로 검색
 		else if ( option.equals("PHONE") ) {
-			sb.append("PHONE LIKE " + "'%" + keyword + "%'");
+			sb.append("PHONE LIKE " + "'%" + keyword + "%' ");
 		}
 
 		sb.append("ORDER BY " + align + ", " + "PA_NUM;"); // 정렬 옵션으로 1차정렬, 차트번호로 2차정렬
