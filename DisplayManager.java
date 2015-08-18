@@ -7,14 +7,14 @@ public class DisplayManager {
 	}
 
 	public void pressAddButton(){
-		kh.changeStatus(null, true);
+		kh.changeStatus(true);
 		kh.nameTextField.requestFocus();
 	}
 	public void pressShowButton(){
 		//////////////////////////////
 	}
 	public void pressUpdateButton(){
-		kh.changeStatus(null, true);
+		kh.changeStatus(true);
 		kh.nameTextField.requestFocus();
 	}
 	public void pressDeleteButton(){
@@ -34,7 +34,7 @@ public class DisplayManager {
 		kh.addrDetailTextField.setText("");
 		kh.surgeryTextArea.setText("");
 		kh.prescriptionTextArea.setText("");
-		kh.changeStatus(null, false);
+		kh.changeStatus(false);
 	}
 	public void pressResetButton(){
 

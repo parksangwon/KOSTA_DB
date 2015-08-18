@@ -363,7 +363,8 @@ public class KostaHospital extends JFrame
 
 
 		//setEditable, setVisible
-		changeStatus("Start", false);
+		numTextField.setEditable(false);
+		changeStatus(false);
 
 		//****************event*********************
 		searchButton.addActionListener(eventSearch);
@@ -395,12 +396,8 @@ public class KostaHospital extends JFrame
 		kh.makeGUI();
 	}
 
-	public void changeStatus(String mode, boolean status){
-
-		if(mode.equals("Start")){
-			numTextField.setEditable(status);
-		}
-
+	public void changeStatus(boolean status){
+		
 		//setEditable
 		imgLoadButton.setEnabled(status);
 		imgDeleteButton.setEnabled(status);

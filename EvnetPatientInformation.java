@@ -13,8 +13,7 @@ public class EvnetPatientInformation implements ActionListener {
 		String action = ae.getActionCommand().trim();
 
 		if(action.equals("추가")){
-			System.out.println("aa");
-			//kh.display.pressAddButton();
+			kh.display.pressAddButton();
 		}
 		else if(action.equals("조회")){
 		}
