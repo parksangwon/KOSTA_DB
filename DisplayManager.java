@@ -50,6 +50,8 @@ public class DisplayManager {
 		kh.addrDetailTextField.setText("");
 		kh.surgeryTextArea.setText("");
 		kh.prescriptionTextArea.setText("");
+		kh.imgName = ".\\img\\facebook.png";
+		setImage();
 	}
 
 	public void setForm(ArrayList patient) {
