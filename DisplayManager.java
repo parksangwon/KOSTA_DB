@@ -21,7 +21,16 @@ public class DisplayManager {
 			String subject = (String)dataTable.get("SUBJECT");
 
 			String data = "È¯ÀÚ : " + paNum;
-			data = data + "\t\t" + name + "\t\t" + sex + "\t\t" + birth + "\t\t" + subject;
+			data = data + "             " + sex + "             " + birth + "             ";
+			if(subject.length()==2){
+				data = data + subject + "                          " + name;
+			}else if(subject.length()==3){
+				data = data + subject + "                     " + name;
+			}else if(subject.length()==4){
+				data = data + subject + "                 " + name;
+			}else{
+				data = data + subject + "             " + name;
+			}
 
 			dataVector.add(data);
 		}
