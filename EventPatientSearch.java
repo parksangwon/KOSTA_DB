@@ -19,6 +19,33 @@ public class EventPatientSearch extends MouseAdapter implements ActionListener, 
 			// 쿼리 작성후 실행
 			patientSearchReady();
 		}
+		else if( ac.equals("조회") ) {
+			// 리스트에 선택된거 찾고, 환자 번호 추출하기
+			Object selectedItem = kh.westList.getSelectedValue();
+			if ( selectedItem == null ) {
+				// 검색어를 입력해주세요 창 띄우기
+				JOptionPane.showMessageDialog(kh, "하나정도는 선택해주셔야지요.", "저기요", JOptionPane.WARNING_MESSAGE);
+				// 검색어 필드 전체 선택// 커서 앞으로
+				kh.searchTextField.selectAll();
+				kh.searchTextField.requestFocus();
+				return;
+			}
+			String selectedName = selectedItem.toString();
+			StringTokenizer tokenizer = new StringTokenizer(selectedName, " ");
+
+			tokenizer.nextToken();
+			tokenizer.nextToken();
+			String patientNum = tokenizer.nextToken(); // 선택한 환자의 환자번호
+			// 찾은거 환자 번호로 조회한다음 우측에 뿌려주기
+
+			ArrayList dataList = setDetailInfo(patientNum);
+
+			kh.display.setForm(dataList);
+			
+			kh.nameTextField.selectAll();
+			kh.nameTextField.requestFocus();
+			return;
+		}
 
 		// 전체 조회
 		// 차트 번호로 정렬
@@ -110,5 +137,17 @@ public class EventPatientSearch extends MouseAdapter implements ActionListener, 
 		// 검색어 필드 전체 선택// 커서 앞으로
 		kh.searchTextField.requestFocus();
 		kh.searchTextField.selectAll();
+	}
+	
+	public ArrayList setDetailInfo(String paNum)
+	{
+		StringBuffer sb = new StringBuffer();
+		sb.append("SELECT PA_NUM, NAME, SEX, BIRTH, SUBJECT, PHONE, POST_CODE, ADDR1, ADDR2, PHOTO, TREATMENT, PRESCRIPTION ");
+		sb.append("FROM PATIENT WHERE PA_NUM='"+paNum+"'");
+
+		DBExecute dbe = new DBExecute();
+		ArrayList dataList = dbe.execute(sb.toString());
+
+		return dataList;
 	}
 }
