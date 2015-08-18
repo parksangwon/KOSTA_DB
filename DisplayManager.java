@@ -1,4 +1,6 @@
 import java.util.*;
+import java.awt.*;
+import javax.swing.*;
 
 public class DisplayManager {
 
@@ -137,10 +139,18 @@ public class DisplayManager {
 		//addProgressText("- 우편번호 목록을 출력하였습니다.");
 	}
 
-		public void postCodeClear()
+	public void postCodeClear()
 	{
 		kh.DialogSearchTextField.setText("");
 		setPostCodeListData(new ArrayList());
 		kh.DialogResultTextArea.setText("");
+	}
+
+	public void setImage(){
+		ImageIcon img = new ImageIcon(kh.imgName);
+		Image resizedImg = img.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH);
+		ImageIcon updateImg = new ImageIcon(resizedImg);
+		
+		kh.imgLabel.setIcon(updateImg);
 	}
 }

@@ -1,4 +1,6 @@
 import java.awt.event.*;
+import javax.swing.*;
+import java.io.*;
 
 public class EvnetPatientInformation implements ActionListener {
 
@@ -14,6 +16,18 @@ public class EvnetPatientInformation implements ActionListener {
 
 	
 		if(action.equals("불러오기")){
+			
+			JFileChooser jfc = new JFileChooser(".\\img");
+
+			jfc.setDialogTitle("이미지 불러오기");
+			jfc.showOpenDialog(kh);
+
+			File file = jfc.getSelectedFile();
+			String path = file.getAbsolutePath();
+
+			kh.imgName = path.replace("\\","\\\\");
+			kh.display.setImage();
+
 		}
 		else if(action.equals("  삭제  ")){ // 이미지 삭제
 		}

@@ -32,8 +32,8 @@ public class KostaHospital extends JFrame
 	JPanel formTopPanel;
 	
 	JPanel imgPanel; // top - west
-	ImageIcon img;
-	Image resizedImg;
+	String imgName;
+	JLabel imgLabel;
 	JPanel imgButtonPanel;
 	JButton imgLoadButton;
 	JButton imgDeleteButton;
@@ -137,9 +137,8 @@ public class KostaHospital extends JFrame
 		formBottomPanel = new JPanel();
 
 		imgPanel = new JPanel();//top
-		
-		img = new ImageIcon("facebook.png");
-		resizedImg = img.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH);
+		imgName = ".\\img\\facebook.png";
+		imgLabel = new JLabel();
 		imgButtonPanel = new JPanel();
 		imgLoadButton = new JButton("불러오기");
 		imgDeleteButton = new JButton("  삭제  ");
@@ -282,7 +281,8 @@ public class KostaHospital extends JFrame
 		imgButtonPanel.add(imgLoadButton);
 		imgButtonPanel.add(imgDeleteButton);
 
-		imgPanel.add("Center", new JLabel(new ImageIcon(resizedImg)));
+		display.setImage();
+		imgPanel.add("Center", imgLabel);
 		imgPanel.add("South",imgButtonPanel);
 		formTopPanel.add("West",imgPanel);	
 
