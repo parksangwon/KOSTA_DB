@@ -370,7 +370,7 @@ public class KostaHospital extends JFrame
 
 		//****************event*********************
 		searchButton.addActionListener(eventSearch);
-		searchTextField.addActionListener(eventSearch);
+		searchTextField.addKeyListener(eventSearch);
 		searchComboBox.addActionListener(eventSearch);
 
 		addButton.addActionListener(eventInformation);
