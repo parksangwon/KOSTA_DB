@@ -15,7 +15,6 @@ public class EventPatientSearch extends MouseAdapter implements ActionListener, 
 	public void actionPerformed(ActionEvent e) {
 		String ac = e.getActionCommand().trim();
 		String selectedOption = kh.searchComboBox.getSelectedItem().toString();
-		System.out.println( selectedOption );
 		if ( ac.equals("검색") ) {
 			// 쿼리 작성후 실행
 			patientSearchReady();
