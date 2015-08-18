@@ -314,36 +314,47 @@ public class KostaHospital extends JFrame
 		//button Color
 		addrSearchButton.setBackground(new Color(55 ,99 ,168));
 		addrSearchButton.setForeground(new Color(255 ,255 ,255));
+		addrSearchButton.setFocusPainted(false);
 
 		okButton.setBackground(new Color(55 ,99 ,168));
 		okButton.setForeground(new Color(255 ,255 ,255));
+		okButton.setFocusPainted(false);
 
 		cancleButton.setBackground(new Color(55 ,99 ,168));
 		cancleButton.setForeground(new Color(255 ,255 ,255));
+		cancleButton.setFocusPainted(false);
 
 		resetButton.setBackground(new Color(55 ,99 ,168));
 		resetButton.setForeground(new Color(255 ,255 ,255));
+		resetButton.setFocusPainted(false);
 
 		imgDeleteButton.setBackground(new Color(55 ,99 ,168));
 		imgDeleteButton.setForeground(new Color(255 ,255 ,255));
+		imgDeleteButton.setFocusPainted(false);
 
 		addButton.setBackground(new Color(55 ,99 ,168));
 		addButton.setForeground(new Color(255 ,255 ,255));
+		addButton.setFocusPainted(false);
 
 		showButton.setBackground(new Color(55 ,99 ,168));
 		showButton.setForeground(new Color(255 ,255 ,255));
+		showButton.setFocusPainted(false);
 
 		updateButton.setBackground(new Color(55 ,99 ,168));
 		updateButton.setForeground(new Color(255 ,255 ,255));
+		updateButton.setFocusPainted(false);
 
 		deleteButton.setBackground(new Color(55 ,99 ,168));
 		deleteButton.setForeground(new Color(255 ,255 ,255));
+		deleteButton.setFocusPainted(false);
 
 		imgLoadButton.setBackground(new Color(55 ,99 ,168));
 		imgLoadButton.setForeground(new Color(255 ,255 ,255));
+		imgLoadButton.setFocusPainted(false);
 
 		searchButton.setBackground(new Color(55 ,99 ,168));
 		searchButton.setForeground(new Color(255 ,255 ,255));
+		searchButton.setFocusPainted(false);
 
 		//setEditable
 		imgLoadButton.setEnabled(false);
