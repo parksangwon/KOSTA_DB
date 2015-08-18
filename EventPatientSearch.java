@@ -65,7 +65,7 @@ public class EventPatientSearch extends MouseAdapter implements ActionListener, 
 		int selectedItemIdx = kh.searchComboBox.getSelectedIndex();
 		String option = "PA_NUM"; // 초기 검색 조건
 		String align = "NAME"; // 검색은 무조건 이름으로 정렬
-		if(selectedItemIdx == 1)
+		if(selectedItemIdx == 0 || selectedItemIdx == 1)
 		{
 			option = "NAME";
 		}
