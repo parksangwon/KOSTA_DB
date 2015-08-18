@@ -364,6 +364,8 @@ public class KostaHospital extends JFrame
 
 		//setEditable, setVisible
 		numTextField.setEditable(false);
+		addrNumberTextField.setEditable(false);
+		addrTextField.setEditable(false);
 		changeStatus(false);
 
 		//****************event*********************
@@ -406,9 +408,7 @@ public class KostaHospital extends JFrame
 		birthTextField.setEditable(status);
 		subjectComboBox.setEnabled(status);
 		phoneTextField.setEditable(status);
-		addrNumberTextField.setEditable(status);
 		addrSearchButton.setEnabled(status);
-		addrTextField.setEditable(status);
 		addrDetailTextField.setEditable(status);
 		surgeryTextArea.setEnabled(status);
 		prescriptionTextArea.setEnabled(status);
