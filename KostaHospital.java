@@ -383,36 +383,33 @@ public class KostaHospital extends JFrame
 	public void changeStatus(String mode, boolean status){
 
 		if(mode.equals("Start")){
-			//setEditable
-			imgLoadButton.setEnabled(status);
-			imgDeleteButton.setEnabled(status);
 			numTextField.setEditable(status);
-			nameTextField.setEditable(status);
-			genderComboBox.setEnabled(status);
-			birthTextField.setEditable(status);
-			subjectComboBox.setEnabled(status);
-			phoneTextField.setEditable(status);
-			addrNumberTextField.setEditable(status);
-			addrSearchButton.setEnabled(status);
-			addrTextField.setEditable(status);
-			addrDetailTextField.setEditable(status);
-			surgeryTextArea.setEnabled(status);
-			prescriptionTextArea.setEnabled(status);
-			okButton.setEnabled(status);
-			cancleButton.setEnabled(status);
-			resetButton.setEnabled(status);
-			
-			//setVisible
-			imgLoadButton.setVisible(status);
-			imgDeleteButton.setVisible(status);
-			addrSearchButton.setVisible(status);
-			okButton.setVisible(status);
-			cancleButton.setVisible(status);
-			resetButton.setVisible(status);
 		}
-		else if(mode.equals("")){
 
-		}
+		//setEditable
+		imgLoadButton.setEnabled(status);
+		imgDeleteButton.setEnabled(status);
+		nameTextField.setEditable(status);
+		genderComboBox.setEnabled(status);
+		birthTextField.setEditable(status);
+		subjectComboBox.setEnabled(status);
+		phoneTextField.setEditable(status);
+		addrNumberTextField.setEditable(status);
+		addrSearchButton.setEnabled(status);
+		addrTextField.setEditable(status);
+		addrDetailTextField.setEditable(status);
+		surgeryTextArea.setEnabled(status);
+		prescriptionTextArea.setEnabled(status);
+		okButton.setEnabled(status);
+		cancleButton.setEnabled(status);
+		resetButton.setEnabled(status);
+		//setVisible
+		imgLoadButton.setVisible(status);
+		imgDeleteButton.setVisible(status);
+		addrSearchButton.setVisible(status);
+		okButton.setVisible(status);
+		cancleButton.setVisible(status);
+		resetButton.setVisible(status);
 
 	}
 }
