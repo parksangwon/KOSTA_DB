@@ -48,6 +48,5 @@ public class DisplayManager {
 		kh.addrDetailTextField.setText("");
 		kh.surgeryTextArea.setText("");
 		kh.prescriptionTextArea.setText("");
-
 	}
 }

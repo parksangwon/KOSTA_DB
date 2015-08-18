@@ -64,6 +64,8 @@ public class KostaHospital extends JFrame
 
 	//event
 	EventPatientSearch eventSearch;
+	EvnetPatientInformation eventInformation;
+	DisplayManager display;
 	
 
 	public KostaHospital()
@@ -164,6 +166,8 @@ public class KostaHospital extends JFrame
 
 		//event
 		eventSearch = new EventPatientSearch(this);
+		eventInformation = new EvnetPatientInformation(this);
+		display = new DisplayManager(this);
 	}
 	public void makeGUI()
 	{
@@ -365,6 +369,17 @@ public class KostaHospital extends JFrame
 		searchButton.addActionListener(eventSearch);
 		searchTextField.addActionListener(eventSearch);
 		searchComboBox.addActionListener(eventSearch);
+
+		addButton.addActionListener(eventInformation);
+		showButton.addActionListener(eventInformation);
+		updateButton.addActionListener(eventInformation);
+		deleteButton.addActionListener(eventInformation);
+		imgLoadButton.addActionListener(eventInformation);
+		imgDeleteButton.addActionListener(eventInformation);
+		addrSearchButton.addActionListener(eventInformation);
+		okButton.addActionListener(eventInformation);
+		cancleButton.addActionListener(eventInformation);
+		resetButton.addActionListener(eventInformation);
 
 		//frame
 		ctp.add("North", titlePanel);
