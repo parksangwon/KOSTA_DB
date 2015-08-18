@@ -60,6 +60,8 @@ public class KostaHospital extends JFrame
 	// east-south
 	JButton okButton, cancleButton, resetButton;
 
+	
+
 
 	Font titleFont;
 	
@@ -285,25 +287,6 @@ public class KostaHospital extends JFrame
 
 		eastPanel.add(formPanel);
 
-		//setEditable
-		imgLoadButton.setEnabled(true);
-		imgDeleteButton.setEnabled(true);
-		numTextField.setEditable(true);
-		nameTextField.setEditable(true);
-		genderComboBox.setEnabled(true);
-		birthTextField.setEditable(true);
-		subjectComboBox.setEnabled(true);
-		phoneTextField.setEditable(true);
-		addrNumberTextField.setEditable(true);
-		addrSearchButton.setEnabled(true);
-		addrTextField.setEditable(true);
-		addrDetailTextField.setEditable(true);
-		surgeryTextArea.setEnabled(true);
-		prescriptionTextArea.setEnabled(true);
-		okButton.setEnabled(true);
-		cancleButton.setEnabled(true);
-		resetButton.setEnabled(true);
-
 		//Color
 		titleLabel.setForeground(new Color(255,255,255));
 		titlePanel.setBackground(new Color(55	 ,99 ,168));
@@ -327,15 +310,67 @@ public class KostaHospital extends JFrame
 		formMidPanel.setBackground(new Color(255 ,255 ,255));
 		formBottomPanel.setBackground(new Color(255 ,255 ,255));
 		formSouthPanel.setBackground(new Color(255 ,255 ,255));
-		
 
+		//button Color
+		addrSearchButton.setBackground(new Color(55 ,99 ,168));
+		addrSearchButton.setForeground(new Color(255 ,255 ,255));
+
+		okButton.setBackground(new Color(55 ,99 ,168));
+		okButton.setForeground(new Color(255 ,255 ,255));
+
+		cancleButton.setBackground(new Color(55 ,99 ,168));
+		cancleButton.setForeground(new Color(255 ,255 ,255));
+
+		resetButton.setBackground(new Color(55 ,99 ,168));
+		resetButton.setForeground(new Color(255 ,255 ,255));
+
+		imgDeleteButton.setBackground(new Color(55 ,99 ,168));
+		imgDeleteButton.setForeground(new Color(255 ,255 ,255));
+
+		addButton.setBackground(new Color(55 ,99 ,168));
+		addButton.setForeground(new Color(255 ,255 ,255));
+
+		showButton.setBackground(new Color(55 ,99 ,168));
+		showButton.setForeground(new Color(255 ,255 ,255));
+
+		updateButton.setBackground(new Color(55 ,99 ,168));
+		updateButton.setForeground(new Color(255 ,255 ,255));
+
+		deleteButton.setBackground(new Color(55 ,99 ,168));
+		deleteButton.setForeground(new Color(255 ,255 ,255));
+
+		imgLoadButton.setBackground(new Color(55 ,99 ,168));
+		imgLoadButton.setForeground(new Color(255 ,255 ,255));
+
+		searchButton.setBackground(new Color(55 ,99 ,168));
+		searchButton.setForeground(new Color(255 ,255 ,255));
+
+		//setEditable
+		imgLoadButton.setEnabled(false);
+		imgDeleteButton.setEnabled(false);
+		numTextField.setEditable(false);
+		nameTextField.setEditable(false);
+		genderComboBox.setEnabled(false);
+		birthTextField.setEditable(false);
+		subjectComboBox.setEnabled(false);
+		phoneTextField.setEditable(false);
+		addrNumberTextField.setEditable(false);
+		addrSearchButton.setEnabled(false);
+		addrTextField.setEditable(false);
+		addrDetailTextField.setEditable(false);
+		surgeryTextArea.setEnabled(false);
+		prescriptionTextArea.setEnabled(false);
+		okButton.setEnabled(false);
+		cancleButton.setEnabled(false);
+		resetButton.setEnabled(false);
+		
 		//setVisible
-		imgLoadButton.setVisible(true);
-		imgDeleteButton.setVisible(true);
-		addrSearchButton.setVisible(true);
-		okButton.setVisible(true);
-		cancleButton.setVisible(true);
-		resetButton.setVisible(true);
+		imgLoadButton.setVisible(false);
+		imgDeleteButton.setVisible(false);
+		addrSearchButton.setVisible(false);
+		okButton.setVisible(false);
+		cancleButton.setVisible(false);
+		resetButton.setVisible(false);
 
 		//****************event*********************
 
