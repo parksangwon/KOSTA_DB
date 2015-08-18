@@ -94,17 +94,16 @@ public class EventPatientSearch extends MouseAdapter implements ActionListener, 
 		if ( option.equals("NAME") ) {
 			sb.append("NAME LIKE " + "'%" + keyword + "%'");
 		}
-		// 번호로 검색
+		// 과목로 검색
 		else if ( option.equals("SUBJECT") ) {
 			sb.append("SUBJECT LIKE " + "'%" + keyword + "%'");
 		}
-		// 과목으로 검색
+		// 번호으로 검색
 		else if ( option.equals("PHONE") ) {
 			sb.append("PHONE LIKE " + "'%" + keyword + "%'");
 		}
 
-		sb.append("ORDER BY " + align + ", " + "PA_NUM"); // 정렬 옵션으로 1차정렬, 차트번호로 2차정렬
-
+		sb.append("ORDER BY " + align + ", " + "PA_NUM;"); // 정렬 옵션으로 1차정렬, 차트번호로 2차정렬
 		DBExecute dbe = new DBExecute();
 		ArrayList dataList = dbe.execute(sb.toString());
 		/*sp.dm.setMemberListData(dataList);*/ // 리스트에 출력
