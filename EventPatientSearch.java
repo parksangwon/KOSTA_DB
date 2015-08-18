@@ -107,5 +107,8 @@ public class EventPatientSearch extends MouseAdapter implements ActionListener, 
 		DBExecute dbe = new DBExecute();
 		ArrayList dataList = dbe.execute(sb.toString());
 		kh.display.setPatientListData(dataList); // 리스트에 출력
+		// 검색어 필드 전체 선택// 커서 앞으로
+		kh.searchTextField.requestFocus();
+		kh.searchTextField.selectAll();
 	}
 }
