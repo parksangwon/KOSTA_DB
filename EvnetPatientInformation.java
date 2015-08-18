@@ -18,6 +18,9 @@ public class EvnetPatientInformation implements ActionListener {
 		else if(action.equals("  삭제  ")){ // 이미지 삭제
 		}
 		else if(action.equals("검색")){ //주소
+			kh.postCodeDialog.setVisible(true);
+			kh.DialogSearchTextField.requestFocus();
+			kh.display.postCodeClear();
 		}
 		else if(action.equals("확인")){
 			kh.changeStatus(false);

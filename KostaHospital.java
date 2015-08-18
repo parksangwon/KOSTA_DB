@@ -61,11 +61,39 @@ public class KostaHospital extends JFrame
 	JButton okButton, cancleButton, resetButton;
 
 	Font titleFont;
+	Font dialogtitleFont;
+
+	//우편번호 검색 dialog
+	JDialog postCodeDialog;
+
+	JPanel DialogPanel;
+	JPanel DialogCenterPanel;
+	JPanel DialogNorthPanel;
+
+	JPanel DialogSearchPanel;
+	JPanel DialogListPanel;
+
+	JPanel DialogResultPanel;
+	JPanel DialogResultTextAreaPanel;
+	JPanel DialogResultButtonPanel;
+
+	JLabel DialogTitleLabel;
+
+	JLabel DialogSearchLabel;
+	JTextField DialogSearchTextField;
+	JButton DialogSearchButton;
+
+	JList DialogList;
+	JScrollPane DialogListScrollPane;
+
+	JTextArea DialogResultTextArea;
+	JButton DialogResultButton;
 
 	//event
 	EventPatientSearch eventSearch;
 	EvnetPatientInformation eventInformation;
 	EventPatientManage eventManage;
+	EventManagerPostCode eventPostCode;
 	DisplayManager display;
 
 	public KostaHospital()
@@ -163,11 +191,39 @@ public class KostaHospital extends JFrame
 
 		//font
 		titleFont = new Font("Impact", Font.BOLD+Font.PLAIN, 40);
+		dialogtitleFont = new Font("Impact", Font.BOLD+Font.PLAIN, 30);
+
+		//dialog
+		postCodeDialog = new JDialog(this, "우편번호 검색", true);
+
+		DialogPanel = new JPanel();
+		DialogCenterPanel = new JPanel();
+		DialogNorthPanel = new JPanel();
+
+		DialogSearchPanel = new JPanel();
+		DialogListPanel = new JPanel();
+
+		DialogResultPanel = new JPanel();
+		DialogResultTextAreaPanel = new JPanel();
+		DialogResultButtonPanel = new JPanel();
+
+		DialogTitleLabel = new JLabel("POST CODE SEARCH");
+
+		DialogSearchLabel = new JLabel("주소입력 : ");
+		DialogSearchTextField = new JTextField(18);
+		DialogSearchButton = new JButton("주소 검색");
+
+		DialogList = new JList();
+		DialogListScrollPane = new JScrollPane(DialogList);
+
+		DialogResultTextArea = new JTextArea(3,0);
+		DialogResultButton = new JButton("주소 적용");
 
 		//event
 		eventSearch = new EventPatientSearch(this);
 		eventInformation = new EvnetPatientInformation(this);
 		eventManage = new EventPatientManage(this);
+		eventPostCode = new EventManagerPostCode(this);
 		display = new DisplayManager(this);
 	}
 	public void makeGUI()
@@ -294,6 +350,47 @@ public class KostaHospital extends JFrame
 
 		eastPanel.add(formPanel);
 
+		//dialog
+		postCodeDialog.add(DialogPanel);
+		DialogPanel.setLayout(new BorderLayout());
+		DialogPanel.add("North", DialogNorthPanel);
+		DialogNorthPanel.add(DialogTitleLabel);
+		DialogTitleLabel.setFont(dialogtitleFont);
+		
+		DialogPanel.add("Center", DialogCenterPanel);
+		DialogCenterPanel.setLayout(new BorderLayout());
+
+		DialogCenterPanel.add("North", DialogSearchPanel);
+		DialogSearchPanel.setLayout(new FlowLayout());
+		DialogSearchPanel.add(DialogSearchLabel);
+		DialogSearchPanel.add(DialogSearchTextField);
+		DialogSearchPanel.add(DialogSearchButton);
+
+		DialogCenterPanel.add("Center",DialogListPanel);
+		DialogListPanel.setLayout(new BorderLayout());
+		DialogListPanel.add(DialogListScrollPane);
+
+		DialogCenterPanel.add("South",DialogResultPanel);
+		DialogResultPanel.setLayout(new BorderLayout());
+
+		DialogResultPanel.add("Center",DialogResultTextAreaPanel);
+		DialogResultPanel.add("East",DialogResultButtonPanel);
+		DialogResultButtonPanel.setLayout(new BorderLayout());
+		DialogResultTextAreaPanel.setLayout(new BorderLayout());
+
+		DialogResultTextAreaPanel.add(DialogResultTextArea);
+		DialogResultButtonPanel.add(DialogResultButton);
+
+		DialogListScrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		DialogListScrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		DialogList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+		DialogResultTextArea.setLineWrap(true);
+		DialogResultTextArea.setEditable(false);
+
+		postCodeDialog.setSize(400, 400);
+		postCodeDialog.setResizable(false);
+
 		//setColor
 		Color white = new Color(255,255,255);
 		Color blue = new Color(55 ,99 ,168);
@@ -362,6 +459,20 @@ public class KostaHospital extends JFrame
 		genderComboBox.setBackground(white);
 		subjectComboBox.setBackground(white);
 
+		//dialogColor
+		DialogNorthPanel.setBackground(blue);
+		DialogTitleLabel.setForeground(white);
+		DialogSearchPanel.setBackground(white);
+		DialogResultTextAreaPanel.setBackground(white);
+		DialogResultButtonPanel.setBackground(white);
+
+		//dialogButtonColor
+		DialogResultButton.setBackground(blue);
+		DialogResultButton.setForeground(white);
+		DialogResultButton.setFocusPainted(false);
+		DialogSearchButton.setBackground(blue);
+		DialogSearchButton.setForeground(white);
+		DialogSearchButton.setFocusPainted(false);
 
 		//setEditable, setVisible
 		numTextField.setEditable(false);
@@ -390,6 +501,11 @@ public class KostaHospital extends JFrame
 		okButton.addActionListener(eventInformation);
 		cancleButton.addActionListener(eventInformation);
 		resetButton.addActionListener(eventInformation);
+
+		DialogSearchButton.addActionListener(eventPostCode);
+		DialogResultButton.addActionListener(eventPostCode);
+		DialogList.addMouseListener(eventPostCode);
+		DialogSearchTextField.addKeyListener(eventPostCode);
 
 		//frame
 		ctp.add("North", titlePanel);

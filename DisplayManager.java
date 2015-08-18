@@ -114,4 +114,33 @@ public class DisplayManager {
 		kh.surgeryTextArea.setText(treatment);
 		kh.prescriptionTextArea.setText(prescription);
 	}
+	public void setPostCodeListData(ArrayList dataList)
+	{
+		Vector dataVector = new Vector();
+
+		for(int i=0; i<dataList.size(); i++)
+		{
+			Hashtable dataTable = (Hashtable)dataList.get(i);
+			String seq = (String)dataTable.get("SEQ");
+			String code = (String)dataTable.get("CODE");
+			String addr = (String)dataTable.get("ADDR");
+			String bunji = (String)dataTable.get("BUNJI");
+			String data = " [" + code + "] " + addr;
+			if(bunji.length()>0)
+			{
+				data = data + " [" + bunji + "]";
+			}
+			dataVector.add(data);
+		}
+
+		kh.DialogList.setListData(dataVector);
+		//addProgressText("- 우편번호 목록을 출력하였습니다.");
+	}
+
+		public void postCodeClear()
+	{
+		kh.DialogSearchTextField.setText("");
+		setPostCodeListData(new ArrayList());
+		kh.DialogResultTextArea.setText("");
+	}
 }
