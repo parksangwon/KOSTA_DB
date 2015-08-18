@@ -60,8 +60,10 @@ public class KostaHospital extends JFrame
 	// east-south
 	JButton okButton, cancleButton, resetButton;
 
-
 	Font titleFont;
+
+	//event
+	EventPatientSearch eventSearch;
 	
 
 	public KostaHospital()
@@ -160,6 +162,8 @@ public class KostaHospital extends JFrame
 		//font
 		titleFont = new Font("Impact", Font.BOLD+Font.PLAIN, 40);
 
+		//event
+		eventSearch = new EventPatientSearch(this);
 	}
 	public void makeGUI()
 	{
@@ -285,62 +289,67 @@ public class KostaHospital extends JFrame
 
 		eastPanel.add(formPanel);
 
-		//setEditable
-		imgLoadButton.setEnabled(true);
-		imgDeleteButton.setEnabled(true);
-		numTextField.setEditable(true);
-		nameTextField.setEditable(true);
-		genderComboBox.setEnabled(true);
-		birthTextField.setEditable(true);
-		subjectComboBox.setEnabled(true);
-		phoneTextField.setEditable(true);
-		addrNumberTextField.setEditable(true);
-		addrSearchButton.setEnabled(true);
-		addrTextField.setEditable(true);
-		addrDetailTextField.setEditable(true);
-		surgeryTextArea.setEnabled(true);
-		prescriptionTextArea.setEnabled(true);
-		okButton.setEnabled(true);
-		cancleButton.setEnabled(true);
-		resetButton.setEnabled(true);
+		//setColor
+		Color white = new Color(255,255,255);
+		Color blue = new Color(55 ,99 ,168);
+		Color skyBlue = new Color(210 ,231 ,251);
 
-		//Color
-		titleLabel.setForeground(new Color(255,255,255));
-		titlePanel.setBackground(new Color(55	 ,99 ,168));
+		titleLabel.setForeground(white);
+		titlePanel.setBackground(blue);
 
-		centerPanel.setBackground(new Color(255 ,255 ,255));
+		centerPanel.setBackground(white);
 
-		westSearchPanel.setBackground(new Color(255 ,255 ,255));
-		westButtonPanel.setBackground(new Color(255 ,255 ,255));
+		westSearchPanel.setBackground(white);
+		westButtonPanel.setBackground(white);
 
-		imgPanel.setBackground(new Color(255 ,255 ,255));
-		imgButtonPanel.setBackground(new Color(255 ,255 ,255));
+		imgPanel.setBackground(white);
+		imgButtonPanel.setBackground(white);
 		
-		subInfoPanel1.setBackground(new Color(210 ,231 ,251));
-		subInfoPanel2.setBackground(new Color(255 ,255 ,255));
-		subInfoPanel3.setBackground(new Color(255 ,255 ,255));
-		subInfoPanel4.setBackground(new Color(255 ,255 ,255));
-		subInfoPanel5.setBackground(new Color(255 ,255 ,255));
-		subInfoPanel6.setBackground(new Color(255 ,255 ,255));
+		subInfoPanel1.setBackground(skyBlue);
+		subInfoPanel2.setBackground(white);
+		subInfoPanel3.setBackground(white);
+		subInfoPanel4.setBackground(white);
+		subInfoPanel5.setBackground(white);
+		subInfoPanel6.setBackground(white);
 
-		infoPanel.setBackground(new Color(255 ,255 ,255));
-		formMidPanel.setBackground(new Color(255 ,255 ,255));
-		formBottomPanel.setBackground(new Color(255 ,255 ,255));
-		formSouthPanel.setBackground(new Color(255 ,255 ,255));
-		
+		infoPanel.setBackground(white);
+		formMidPanel.setBackground(white);
+		formBottomPanel.setBackground(white);
+		formSouthPanel.setBackground(white);
 
-		//setVisible
-		imgLoadButton.setVisible(true);
-		imgDeleteButton.setVisible(true);
-		addrSearchButton.setVisible(true);
-		okButton.setVisible(true);
-		cancleButton.setVisible(true);
-		resetButton.setVisible(true);
+		//button Color
+		addrSearchButton.setBackground(blue);
+		addrSearchButton.setForeground(white);
+		okButton.setBackground(blue);
+		okButton.setForeground(white);
+		cancleButton.setBackground(blue);
+		cancleButton.setForeground(white);
+		resetButton.setBackground(blue);
+		resetButton.setForeground(white);
+		imgDeleteButton.setBackground(blue);
+		imgDeleteButton.setForeground(white);
+		addButton.setBackground(blue);
+		addButton.setForeground(white);
+		showButton.setBackground(blue);
+		showButton.setForeground(white);
+		updateButton.setBackground(blue);
+		updateButton.setForeground(white);
+		deleteButton.setBackground(blue);
+		deleteButton.setForeground(white);
+		imgLoadButton.setBackground(blue);
+		imgLoadButton.setForeground(white);
+		searchButton.setBackground(blue);
+		searchButton.setForeground(white);
+
+		//setEditable, setVisible
+		changeStatus("Start", false);
 
 		//****************event*********************
+		searchButton.addActionListener(eventSearch);
+		searchTextField.addActionListener(eventSearch);
+		searchComboBox.addActionListener(eventSearch);
 
 		//frame
-		
 		ctp.add("North", titlePanel);
 		ctp.add("Center", centerPanel);
 		setSize(1200, 700);
@@ -352,5 +361,41 @@ public class KostaHospital extends JFrame
 	{
 		KostaHospital kh = new KostaHospital();
 		kh.makeGUI();
+	}
+
+	public void changeStatus(String mode, boolean status){
+
+		if(mode.equals("Start")){
+			//setEditable
+			imgLoadButton.setEnabled(status);
+			imgDeleteButton.setEnabled(status);
+			numTextField.setEditable(status);
+			nameTextField.setEditable(status);
+			genderComboBox.setEnabled(status);
+			birthTextField.setEditable(status);
+			subjectComboBox.setEnabled(status);
+			phoneTextField.setEditable(status);
+			addrNumberTextField.setEditable(status);
+			addrSearchButton.setEnabled(status);
+			addrTextField.setEditable(status);
+			addrDetailTextField.setEditable(status);
+			surgeryTextArea.setEnabled(status);
+			prescriptionTextArea.setEnabled(status);
+			okButton.setEnabled(status);
+			cancleButton.setEnabled(status);
+			resetButton.setEnabled(status);
+			
+			//setVisible
+			imgLoadButton.setVisible(status);
+			imgDeleteButton.setVisible(status);
+			addrSearchButton.setVisible(status);
+			okButton.setVisible(status);
+			cancleButton.setVisible(status);
+			resetButton.setVisible(status);
+		}
+		else if(mode.equals("")){
+
+		}
+
 	}
 }
