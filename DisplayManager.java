@@ -49,4 +49,7 @@ public class DisplayManager {
 		kh.surgeryTextArea.setText("");
 		kh.prescriptionTextArea.setText("");
 	}
+
+	public void setForm(ArrayList data) {
+	}
 }
