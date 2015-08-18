@@ -85,7 +85,7 @@ public class EventPatientSearch extends MouseAdapter implements ActionListener, 
 	public void patientSearch(String keyword, String option, String align) {
 		
 		StringBuffer sb = new StringBuffer();
-		sb.append("SELECT PA_NAME, NAME, SEX, BIRTH, SUBJECT FROM PATIENT WHERE USE_YN = 'Y' ");
+		sb.append("SELECT PA_NUM, NAME, SEX, BIRTH, SUBJECT FROM PATIENT WHERE USE_YN = 'Y' ");
 		
 		if ( !option.equals("") ) {
 			sb.append("AND ");
