@@ -15,6 +15,7 @@ public class EventPatientSearch extends MouseAdapter implements ActionListener, 
 	public void actionPerformed(ActionEvent e) {
 		String ac = e.getActionCommand().trim();
 		String selectedOption = kh.searchComboBox.getSelectedItem().toString();
+		System.out.println( selectedOption );
 		if ( ac.equals("검색") ) {
 			// 쿼리 작성후 실행
 			patientSearchReady();
@@ -26,15 +27,15 @@ public class EventPatientSearch extends MouseAdapter implements ActionListener, 
 			patientSearch("", "", "PA_NUM");
 		}
 		// 이름으로 정렬
-		else if ( selectedOption.equals("이름") ) {
+		else if ( selectedOption.equals("성        명") ) {
 			patientSearch("", "", "NAME");
 		}
 		// 번호로 정렬
-		else if ( selectedOption.equals("진료과") ) {
+		else if ( selectedOption.equals("진  료  과") ) {
 			patientSearch("", "", "SUBJECT");
 		}
 		// 과목으로 정렬
-		else if ( selectedOption.equals("번호") ) {
+		else if ( selectedOption.equals("전화번호") ) {
 			patientSearch("", "", "PHONE");
 		}
 	}
