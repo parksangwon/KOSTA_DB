@@ -51,8 +51,8 @@ public class EventPatientSearch extends MouseAdapter implements ActionListener, 
 
 	public void patientSearchReady() {
 		// 입력된 검색어가 없을 때
-		String searchText = kh.searchTextField.getText();
-		if ( searchText.length() == 0 ) {
+		String keyword = kh.searchTextField.getText();
+		if ( keyword.length() == 0 ) {
 			// 검색어를 입력해주세요 창 띄우기
 			JOptionPane.showMessageDialog(kh, "검색어는 입력해주셔야지요.", "저기요", JOptionPane.WARNING_MESSAGE);
 			// 검색어 필드 전체 선택// 커서 앞으로
@@ -71,7 +71,7 @@ public class EventPatientSearch extends MouseAdapter implements ActionListener, 
 		}
 		else if(selectedItemIdx == 2)
 		{
-			option = "SUBJECT;
+			option = "SUBJECT";
 		}
 		else if(selectedItemIdx == 3)
 		{
