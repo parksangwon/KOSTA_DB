@@ -106,6 +106,6 @@ public class EventPatientSearch extends MouseAdapter implements ActionListener, 
 		sb.append("ORDER BY " + align + ", " + "PA_NUM"); // 정렬 옵션으로 1차정렬, 차트번호로 2차정렬
 		DBExecute dbe = new DBExecute();
 		ArrayList dataList = dbe.execute(sb.toString());
-		kh.display.setPatientListData(dataList);*/ // 리스트에 출력
+		kh.display.setPatientListData(dataList); // 리스트에 출력
 	}
 }
