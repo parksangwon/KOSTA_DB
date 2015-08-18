@@ -320,26 +320,43 @@ public class KostaHospital extends JFrame
 		//button Color
 		addrSearchButton.setBackground(blue);
 		addrSearchButton.setForeground(white);
+		addrSearchButton.setFocusPainted(false);
 		okButton.setBackground(blue);
 		okButton.setForeground(white);
+		okButton.setFocusPainted(false);
 		cancleButton.setBackground(blue);
 		cancleButton.setForeground(white);
+		cancleButton.setFocusPainted(false);
 		resetButton.setBackground(blue);
 		resetButton.setForeground(white);
+		resetButton.setFocusPainted(false);
 		imgDeleteButton.setBackground(blue);
 		imgDeleteButton.setForeground(white);
+		imgDeleteButton.setFocusPainted(false);
 		addButton.setBackground(blue);
 		addButton.setForeground(white);
+		addButton.setFocusPainted(false);
 		showButton.setBackground(blue);
 		showButton.setForeground(white);
+		showButton.setFocusPainted(false);
 		updateButton.setBackground(blue);
 		updateButton.setForeground(white);
+		updateButton.setFocusPainted(false);
 		deleteButton.setBackground(blue);
 		deleteButton.setForeground(white);
+		deleteButton.setFocusPainted(false);
 		imgLoadButton.setBackground(blue);
 		imgLoadButton.setForeground(white);
+		imgLoadButton.setFocusPainted(false);
 		searchButton.setBackground(blue);
 		searchButton.setForeground(white);
+		searchButton.setFocusPainted(false);
+
+		//combobox color
+		searchComboBox.setBackground(white);
+		genderComboBox.setBackground(white);
+		subjectComboBox.setBackground(white);
+
 
 		//setEditable, setVisible
 		changeStatus("Start", false);
