@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class DisplayManager {
 
 	private KostaHospital kh;
@@ -6,6 +8,25 @@ public class DisplayManager {
 		this.kh = kh;
 	}
 	public void setPatientListData(ArrayList patients){
+
+		Vector dataVector = new Vector();
+
+		for(int i=0; i<patients.size(); i++)
+		{
+			Hashtable dataTable = (Hashtable)patients.get(i);
+			String paNum = (String)dataTable.get("PA_NUM");
+			String name = (String)dataTable.get("NAME");
+			String sex = (String)dataTable.get("SEX");
+			String birth = (String)dataTable.get("BIRTH");
+			String subject = (String)dataTable.get("SUBJECT");
+
+			String data = "È¯ÀÚ : " + paNum;
+			data = data + "\t\t" + name + "\t\t" + sex + "\t\t" + birth + "\t\t" + subject;
+
+			dataVector.add(data);
+		}
+
+		kh.westList.setListData(dataVector);
 	}
 	public void editClear(){
 		kh.nameTextField.setText("");
