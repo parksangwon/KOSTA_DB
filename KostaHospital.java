@@ -107,7 +107,7 @@ public class KostaHospital extends JFrame
 		imgPanel = new JPanel();//top
 		
 		img = new ImageIcon("facebook.png");
-		resizedImg = img.getImage().getScaledInstance(150, 130, Image.SCALE_SMOOTH);
+		resizedImg = img.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH);
 		imgButtonPanel = new JPanel();
 		imgLoadButton = new JButton("불러오기");
 		imgDeleteButton = new JButton("  삭제  ");
@@ -171,20 +171,22 @@ public class KostaHospital extends JFrame
 		centerPanel.add(eastPanel);
 		
 		// title
+		
 		titleLabel.setFont(titleFont);
 		titlePanel.add(titleLabel);
-		titlePanel.setBackground(Color.BLUE);
+		
 
 		// west
 		westListPanel.setLayout(new BorderLayout());
 
 		searchComboBox.addItem("검색방법");
-		searchComboBox.addItem("이름");
-		searchComboBox.addItem("과");
-		searchComboBox.addItem("번호");
+		searchComboBox.addItem("성        명");
+		searchComboBox.addItem("진  료  과");
+		searchComboBox.addItem("전화번호");
 		westSearchPanel.add(searchComboBox);
 		westSearchPanel.add(searchTextField);
 		westSearchPanel.add(searchButton);
+		
 		
 		westList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		
@@ -284,27 +286,61 @@ public class KostaHospital extends JFrame
 		eastPanel.add(formPanel);
 
 		//setEditable
-		imgLoadButton.setEnabled(false);
-		imgDeleteButton.setEnabled(false);
-		numTextField.setEditable(false);
-		nameTextField.setEditable(false);
-		genderComboBox.setEnabled(false);
-		birthTextField.setEditable(false);
-		subjectComboBox.setEnabled(false);
-		phoneTextField.setEditable(false);
-		addrNumberTextField.setEditable(false);
-		addrSearchButton.setEnabled(false);
-		addrTextField.setEditable(false);
-		addrDetailTextField.setEditable(false);
-		surgeryTextArea.setEnabled(false);
-		prescriptionTextArea.setEnabled(false);
-		okButton.setEnabled(false);
-		cancleButton.setEnabled(false);
-		resetButton.setEnabled(false);
+		imgLoadButton.setEnabled(true);
+		imgDeleteButton.setEnabled(true);
+		numTextField.setEditable(true);
+		nameTextField.setEditable(true);
+		genderComboBox.setEnabled(true);
+		birthTextField.setEditable(true);
+		subjectComboBox.setEnabled(true);
+		phoneTextField.setEditable(true);
+		addrNumberTextField.setEditable(true);
+		addrSearchButton.setEnabled(true);
+		addrTextField.setEditable(true);
+		addrDetailTextField.setEditable(true);
+		surgeryTextArea.setEnabled(true);
+		prescriptionTextArea.setEnabled(true);
+		okButton.setEnabled(true);
+		cancleButton.setEnabled(true);
+		resetButton.setEnabled(true);
+
+		//Color
+		titleLabel.setForeground(new Color(255,255,255));
+		titlePanel.setBackground(new Color(55	 ,99 ,168));
+
+		centerPanel.setBackground(new Color(255 ,255 ,255));
+
+		westSearchPanel.setBackground(new Color(255 ,255 ,255));
+		westButtonPanel.setBackground(new Color(255 ,255 ,255));
+
+		imgPanel.setBackground(new Color(255 ,255 ,255));
+		imgButtonPanel.setBackground(new Color(255 ,255 ,255));
+		
+		subInfoPanel1.setBackground(new Color(210 ,231 ,251));
+		subInfoPanel2.setBackground(new Color(255 ,255 ,255));
+		subInfoPanel3.setBackground(new Color(255 ,255 ,255));
+		subInfoPanel4.setBackground(new Color(255 ,255 ,255));
+		subInfoPanel5.setBackground(new Color(255 ,255 ,255));
+		subInfoPanel6.setBackground(new Color(255 ,255 ,255));
+
+		infoPanel.setBackground(new Color(255 ,255 ,255));
+		formMidPanel.setBackground(new Color(255 ,255 ,255));
+		formBottomPanel.setBackground(new Color(255 ,255 ,255));
+		formSouthPanel.setBackground(new Color(255 ,255 ,255));
+		
+
+		//setVisible
+		imgLoadButton.setVisible(true);
+		imgDeleteButton.setVisible(true);
+		addrSearchButton.setVisible(true);
+		okButton.setVisible(true);
+		cancleButton.setVisible(true);
+		resetButton.setVisible(true);
 
 		//****************event*********************
 
 		//frame
+		
 		ctp.add("North", titlePanel);
 		ctp.add("Center", centerPanel);
 		setSize(1200, 700);
