@@ -155,11 +155,17 @@ public class DisplayManager {
 			kh.showButton.setEnabled(false);
 			kh.updateButton.setEnabled(false);
 			kh.deleteButton.setEnabled(false);
+		}else if(function.equals("Search")){
+
+			kh.addButton.setEnabled(true);
+			kh.showButton.setEnabled(true);
+			kh.updateButton.setEnabled(false);
+			kh.deleteButton.setEnabled(false);
 		}
 		else if(function.equals("Show")){
 
 			kh.addButton.setEnabled(true);
-			kh.showButton.setEnabled(true);
+			kh.showButton.setEnabled(false);
 			kh.updateButton.setEnabled(true);
 			kh.deleteButton.setEnabled(true);
 		}

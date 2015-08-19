@@ -1,6 +1,7 @@
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
+import java.io.*;
 
 public class KostaHospital extends JFrame 
 {
@@ -9,6 +10,9 @@ public class KostaHospital extends JFrame
 	Container ctp;
 	Toolkit toolkit;
 	Dimension screenSize;
+	
+	String[] subjects = new String[]{"비뇨기과", "산부인과", "신경과", "외과", "응급의학과",
+							"정형외과", "진료과", "치과", "흉부외과", "피부과"};
 
 	// frame
 	JPanel titlePanel, centerPanel;
@@ -36,6 +40,7 @@ public class KostaHospital extends JFrame
 	JPanel imgPanel; // top - west
 	String imgName;
 	JLabel imgLabel;
+	File imgFile;
 	JPanel imgButtonPanel;
 	JButton imgLoadButton;
 	JButton imgDeleteButton;
@@ -141,9 +146,10 @@ public class KostaHospital extends JFrame
 		imgPanel = new JPanel();//top
 		imgName = ".\\img\\facebook.png";
 		imgLabel = new JLabel();
+		imgFile = null;
 		imgButtonPanel = new JPanel();
 		imgLoadButton = new JButton(" 사진 ");
-		imgDeleteButton = new JButton(" 삭제 ");
+		imgDeleteButton = new JButton("지우기");
 		
 		infoPanel = new JPanel();
 		subInfoPanel1 = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -284,7 +290,6 @@ public class KostaHospital extends JFrame
 		imgButtonPanel.add(imgDeleteButton);
 
 		display.setImage();
-		imgLabel.setHorizontalAlignment(JLabel.CENTER);
 		imgPanel.add("Center", imgLabel);
 		imgPanel.add("South",imgButtonPanel);
 		formTopPanel.add("West",imgPanel);	
@@ -305,16 +310,9 @@ public class KostaHospital extends JFrame
 		subInfoPanel3.add(subjectLabel);
 		subInfoPanel3.add(subjectComboBox);
 		subjectComboBox.addItem("- 진료선택 -");
-		subjectComboBox.addItem("비뇨기과");
-		subjectComboBox.addItem("산부인과");
-		subjectComboBox.addItem("신경과");
-		subjectComboBox.addItem("외과");
-		subjectComboBox.addItem("응급의학과");
-		subjectComboBox.addItem("정형외과");
-		subjectComboBox.addItem("진료과");
-		subjectComboBox.addItem("치과");
-		subjectComboBox.addItem("흉부외과");
-		subjectComboBox.addItem("피부과");
+		for(String subject:subjects){
+			subjectComboBox.addItem(subject);
+		}
 		subInfoPanel3.add(phoneLabel);
 		subInfoPanel3.add(phoneTextField);
 
@@ -477,13 +475,11 @@ public class KostaHospital extends JFrame
 		DialogSearchButton.setForeground(white);
 		DialogSearchButton.setFocusPainted(false);
 
-		//setEnabled, setEditable, setVisible
-		
+		//setEditable, setVisible
 		display.setButton(function);
 		numTextField.setEditable(false);
 		addrNumberTextField.setEditable(false);
 		addrTextField.setEditable(false);
-
 		changeStatus(false);
 
 		//****************event*********************
@@ -494,13 +490,13 @@ public class KostaHospital extends JFrame
 		westList.addMouseListener(eventSearch);
 
 		addButton.addActionListener(eventManage);
+		okButton.addActionListener(eventManage);
 		updateButton.addActionListener(eventManage);
 		deleteButton.addActionListener(eventManage);
-
+		
 		imgLoadButton.addActionListener(eventInformation);
 		imgDeleteButton.addActionListener(eventInformation);
 		addrSearchButton.addActionListener(eventInformation);
-		okButton.addActionListener(eventInformation);
 		cancleButton.addActionListener(eventInformation);
 		resetButton.addActionListener(eventInformation);
 

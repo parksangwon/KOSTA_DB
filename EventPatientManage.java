@@ -90,32 +90,64 @@ public class EventPatientManage implements ActionListener {
 					return;
 				}	
 			}
-			
-			
 
 			// DB에 저장
-			String value = "'"+kh.numTextField.getText()+"'"+
-							"'"+kh.nameTextField.getText()+"'"+
-							"'"+kh.genderComboBox.getSelectedItem()+"'"+
-							"'"+kh.birthTextField.getText()+"'"+
-							"'"+kh.subjectComboBox.getSelectedItem()+"'"+
-							"'"+kh.phoneTextField.getText()+"'"+
-							"'"+kh.addrNumberTextField.getText()+"'"+
-							"'"+kh.addrTextField.getText()+"'"+
-							"'"+kh.addrDetailTextField.getText()+"'"+
-							"'"+""+"'"+
-							"'"+kh.surgeryTextArea.getText()+"'"+
-							"'"+kh.prescriptionTextArea.getText()+"'";
-		
-			patientAdd(value);
+			String gender;
+			if(kh.genderComboBox.getSelectedIndex()==1){
+				gender = "M";
+			}else{
+				gender = "W";
+			}
+			String subject = (String)kh.subjectComboBox.getSelectedItem();
 
-			kh.function = "Normal";
+			if(kh.function.equals("Add")){
+				StringBuffer preSb = new StringBuffer();
+				preSb.append("SELECT 'PA'||LPAD(PATIENT_SEQ.NEXTVAL, 4, 0) PA_NUM FROM DUAL");
+				DBExecute preDbe = new DBExecute();
+				ArrayList preDataList = preDbe.execute(preSb.toString());
+				String paNum = (String)((Hashtable)preDataList.get(0)).get("PA_NUM");
+
+				String value = "'"+paNum+"', "+
+								"'"+kh.nameTextField.getText()+"', "+
+								"'"+gender+"', "+
+								kh.birthTextField.getText()+", "+
+								"'"+subject+"', "+
+								kh.phoneTextField.getText()+", "+
+								"'"+kh.addrNumberTextField.getText()+"', "+
+								"'"+kh.addrTextField.getText()+"', "+
+								"'"+kh.addrDetailTextField.getText()+"', "+
+								"null"+", "+// 이미지
+								"'"+kh.surgeryTextArea.getText()+"', "+
+								"'"+kh.prescriptionTextArea.getText()+"'";
+
+				patientAdd(value);		
+
+			}else{
+				
+				String value = "PA_NUM = " + "'"+kh.numTextField.getText()+"', "+
+								"NAME = " + "'"+kh.nameTextField.getText()+"', "+
+								"SEX = " + "'"+gender+"', "+
+								"BIRTH = " + kh.birthTextField.getText()+", "+
+								"SUBJECT = " + "'"+subject+"', "+
+								"PHONE = " + kh.phoneTextField.getText()+", "+
+								"POST_CODE = " + "'"+kh.addrNumberTextField.getText()+"', "+
+								"ADDR1 = " + "'"+kh.addrTextField.getText()+"', "+
+								"ADDR2 = " + "'"+kh.addrDetailTextField.getText()+"', "+
+								"PHOTO = " + "null"+", "+// 이미지
+								"TREATMENT = " + "'"+kh.surgeryTextArea.getText()+"', "+
+								"PRESCRIPTION = " + "'"+kh.prescriptionTextArea.getText()+"'";
+
+				patientUpdate(value, kh.numTextField.getText());
+			}
+
+			kh.eventSearch.patientSearch("", "", "PA_NUM");  //리스트 리셋
+			kh.function = "Show";
 			kh.display.setButton(kh.function);
 			kh.changeStatus(false);
 			kh.westList.setEnabled(true);
+
 		}
 		else if(action.equals("수정")){
-
 			kh.function = "Update";
 			kh.display.setButton(kh.function);	
 			kh.westList.setEnabled(false);
@@ -152,14 +184,16 @@ public class EventPatientManage implements ActionListener {
 		DBExecute dbe = new DBExecute();
 		dbe.execute(sb);
 	}
-	public void patientUpdate(String paNum){
+	public void patientUpdate(String value, String paNum){
+		String sb = "UPDATE PATIENT SET " + value + " WHERE PA_NUM = '" + paNum + "'";
+		DBExecute dbe = new DBExecute();
+		dbe.execute(sb);
 	}
 	public void patientDelete(String paNum){
 
 		String sb = "DELETE FROM PATIENT WHERE PA_NUM = " + "'" + paNum + "'";
 		DBExecute dbe = new DBExecute();
 		dbe.execute(sb);
-
 	}
 	public String getAtribute(String value, int num){
 

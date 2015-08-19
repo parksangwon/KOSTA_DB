@@ -20,6 +20,10 @@ public class EventPatientSearch extends MouseAdapter implements ActionListener, 
 			patientSearchReady();
 		}
 		else if( ac.equals("조회") ) {
+
+			kh.function = "Show";
+			kh.display.setButton(kh.function);
+
 			// 리스트에 선택된거 찾고, 환자 번호 추출하기
 			Object selectedItem = kh.westList.getSelectedValue();
 			if ( selectedItem == null ) {
@@ -75,18 +79,15 @@ public class EventPatientSearch extends MouseAdapter implements ActionListener, 
 	public void keyTyped(KeyEvent e) {}
 	public void keyReleased(KeyEvent e) {}
 	public void mouseClicked(MouseEvent e) {
-		
 		if(kh.westList.getSelectedIndex()!=-1){
-			kh.function = "Show";
+			kh.function = "Search";
 			kh.display.setButton(kh.function);
 		}
-
 	}
 
 	public void patientSearchReady() {
 		// 입력된 검색어가 없을 때
 		String keyword = kh.searchTextField.getText();
-
 		if ( keyword.length() == 0 ) {
 			// 검색어를 입력해주세요 창 띄우기
 			JOptionPane.showMessageDialog(kh, "검색어는 입력해주셔야지요.", "저기요", JOptionPane.WARNING_MESSAGE);

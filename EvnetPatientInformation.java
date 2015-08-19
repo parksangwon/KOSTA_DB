@@ -1,7 +1,6 @@
 import java.awt.event.*;
 import javax.swing.*;
 import java.io.*;
-import java.util.*;
 
 public class EvnetPatientInformation implements ActionListener {
 
@@ -23,14 +22,14 @@ public class EvnetPatientInformation implements ActionListener {
 			jfc.setDialogTitle("이미지 불러오기");
 			jfc.showOpenDialog(kh);
 
-			kh.imgfile = jfc.getSelectedFile();
-			String path = kh.imgfile.getAbsolutePath();
+			kh.imgFile = jfc.getSelectedFile();
+			String path = kh.imgFile.getAbsolutePath();
 
 			kh.imgName = path.replace("\\","\\\\");
 			kh.display.setImage();
 
 		}
-		else if(action.equals("삭제")){ // 이미지 삭제
+		else if(action.equals("지우기")){ // 이미지 삭제
 			kh.imgName = ".\\img\\facebook.png";
 			kh.display.setImage();
 		}
@@ -40,11 +39,17 @@ public class EvnetPatientInformation implements ActionListener {
 			kh.display.postCodeClear();
 		}
 		else if(action.equals("취소")){
-			kh.function = "Normal";
-			kh.display.setButton(kh.function);
-			kh.display.editClear();
+			
+			if(kh.function.equals("Add")){
+				kh.display.editClear();
+				kh.function = "Normal";
+			}
+			else{
+				kh.function = "Show";
+			}
 			kh.changeStatus(false);
 			kh.westList.setEnabled(true);
+			kh.display.setButton(kh.function);
 		}
 		else if(action.equals("재입력")){
 			kh.display.editClear();
