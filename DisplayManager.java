@@ -150,7 +150,7 @@ public class DisplayManager {
 
 	public void setImage(){
 		ImageIcon img = new ImageIcon(kh.imgName);
-		Image resizedImg = img.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH);
+		Image resizedImg = img.getImage().getScaledInstance(140, 140, Image.SCALE_SMOOTH);
 		ImageIcon updateImg = new ImageIcon(resizedImg);
 		
 		kh.imgLabel.setIcon(updateImg);

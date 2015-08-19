@@ -282,6 +282,7 @@ public class KostaHospital extends JFrame
 		imgButtonPanel.add(imgDeleteButton);
 
 		display.setImage();
+		imgLabel.setHorizontalAlignment(JLabel.CENTER);
 		imgPanel.add("Center", imgLabel);
 		imgPanel.add("South",imgButtonPanel);
 		formTopPanel.add("West",imgPanel);	
@@ -474,27 +475,27 @@ public class KostaHospital extends JFrame
 		DialogSearchButton.setForeground(white);
 		DialogSearchButton.setFocusPainted(false);
 
-		//setEditable, setVisible
+		//setEnabled, setEditable, setVisible
+		showButton.setEnabled(false);
+		updateButton.setEnabled(false);
+		deleteButton.setEnabled(false);
+
 		numTextField.setEditable(false);
 		addrNumberTextField.setEditable(false);
 		addrTextField.setEditable(false);
+
 		changeStatus(false);
 
 		//****************event*********************
 		searchButton.addActionListener(eventSearch);
 		searchTextField.addKeyListener(eventSearch);
 		searchComboBox.addActionListener(eventSearch);
-
 		showButton.addActionListener(eventSearch);
 
 		addButton.addActionListener(eventManage);
 		updateButton.addActionListener(eventManage);
 		deleteButton.addActionListener(eventManage);
 
-		addButton.addActionListener(eventInformation);
-		showButton.addActionListener(eventInformation);
-		updateButton.addActionListener(eventInformation);
-		deleteButton.addActionListener(eventInformation);
 		imgLoadButton.addActionListener(eventInformation);
 		imgDeleteButton.addActionListener(eventInformation);
 		addrSearchButton.addActionListener(eventInformation);
