@@ -87,30 +87,13 @@ public class DisplayManager {
 		kh.genderComboBox.setSelectedIndex(genderIdx);
 		
 		kh.birthTextField.setText(birth);
-
-		int subjectIdx = 0;
-		if ( subject.equals("비뇨기과") ) {
-			subjectIdx = 1;
-		} else if ( subject.equals("산부인과") ) {
-			subjectIdx = 2;
-		} else if ( subject.equals("신경과") ) {
-			subjectIdx = 3;
-		} else if ( subject.equals("외과") ) {
-			subjectIdx = 4;
-		} else if ( subject.equals("응급의학과") ) {
-			subjectIdx = 5;
-		} else if ( subject.equals("정형외과") ) {
-			subjectIdx = 6;
-		} else if ( subject.equals("진료과") ) {
-			subjectIdx = 7;
-		} else if ( subject.equals("치과") ) {
-			subjectIdx = 8;
-		} else if ( subject.equals("흉부외과") ) {
-			subjectIdx = 9;
-		} else if ( subject.equals("피부과") ) {
-			subjectIdx = 10;
+		
+		for(int i = 0 ; i < (kh.subjects).length ; i++){
+			if(subject.equals(kh.subjects[i])){
+				kh.subjectComboBox.setSelectedIndex(i+1);
+				break;
+			}
 		}
-		kh.subjectComboBox.setSelectedIndex(subjectIdx);
 
 		kh.phoneTextField.setText(phone);
 		kh.addrNumberTextField.setText(postCode);
