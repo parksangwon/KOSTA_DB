@@ -142,8 +142,8 @@ public class KostaHospital extends JFrame
 		imgName = ".\\img\\facebook.png";
 		imgLabel = new JLabel();
 		imgButtonPanel = new JPanel();
-		imgLoadButton = new JButton("불러오기");
-		imgDeleteButton = new JButton("  삭제  ");
+		imgLoadButton = new JButton(" 사진 ");
+		imgDeleteButton = new JButton(" 삭제 ");
 		
 		infoPanel = new JPanel();
 		subInfoPanel1 = new JPanel(new FlowLayout(FlowLayout.LEFT));

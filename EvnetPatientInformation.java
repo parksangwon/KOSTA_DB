@@ -15,7 +15,7 @@ public class EvnetPatientInformation implements ActionListener {
 		String action = ae.getActionCommand().trim();
 
 	
-		if(action.equals("불러오기")){
+		if(action.equals("사진")){
 			
 			JFileChooser jfc = new JFileChooser(".\\img");
 
@@ -29,7 +29,9 @@ public class EvnetPatientInformation implements ActionListener {
 			kh.display.setImage();
 
 		}
-		else if(action.equals("  삭제  ")){ // 이미지 삭제
+		else if(action.equals("삭제")){ // 이미지 삭제
+			kh.imgName = ".\\img\\facebook.png";
+			kh.display.setImage();
 		}
 		else if(action.equals("검색")){ //주소
 			kh.postCodeDialog.setVisible(true);

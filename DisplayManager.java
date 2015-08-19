@@ -40,6 +40,7 @@ public class DisplayManager {
 		kh.westList.setListData(dataVector);
 	}
 	public void editClear(){
+		kh.numTextField.setText("");
 		kh.nameTextField.setText("");
 		kh.genderComboBox.setSelectedIndex(0);
 		kh.birthTextField.setText("");
@@ -155,7 +156,7 @@ public class DisplayManager {
 		
 		kh.imgLabel.setIcon(updateImg);
 	}
-
+	
 	public void setButton(String function){
 
 		if(function.equals("Normal")){
