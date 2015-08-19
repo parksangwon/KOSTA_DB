@@ -4,6 +4,8 @@ import java.awt.event.*;
 
 public class KostaHospital extends JFrame 
 {
+	String function = "Normal";
+
 	Container ctp;
 	Toolkit toolkit;
 	Dimension screenSize;
@@ -476,10 +478,8 @@ public class KostaHospital extends JFrame
 		DialogSearchButton.setFocusPainted(false);
 
 		//setEnabled, setEditable, setVisible
-		showButton.setEnabled(false);
-		updateButton.setEnabled(false);
-		deleteButton.setEnabled(false);
-
+		
+		display.setButton(function);
 		numTextField.setEditable(false);
 		addrNumberTextField.setEditable(false);
 		addrTextField.setEditable(false);
@@ -491,6 +491,7 @@ public class KostaHospital extends JFrame
 		searchTextField.addKeyListener(eventSearch);
 		searchComboBox.addActionListener(eventSearch);
 		showButton.addActionListener(eventSearch);
+		westList.addMouseListener(eventSearch);
 
 		addButton.addActionListener(eventManage);
 		updateButton.addActionListener(eventManage);

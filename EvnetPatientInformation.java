@@ -37,11 +37,17 @@ public class EvnetPatientInformation implements ActionListener {
 			kh.display.postCodeClear();
 		}
 		else if(action.equals("확인")){
+			kh.function = "Normal";
+			kh.display.setButton(kh.function);
 			kh.changeStatus(false);
+			kh.westList.setEnabled(true);
 		}
 		else if(action.equals("취소")){
+			kh.function = "Normal";
+			kh.display.setButton(kh.function);
 			kh.display.editClear();
 			kh.changeStatus(false);
+			kh.westList.setEnabled(true);
 		}
 		else if(action.equals("재입력")){
 			kh.display.editClear();

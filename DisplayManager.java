@@ -155,4 +155,29 @@ public class DisplayManager {
 		
 		kh.imgLabel.setIcon(updateImg);
 	}
+
+	public void setButton(String function){
+
+		if(function.equals("Normal")){
+
+			kh.addButton.setEnabled(true);
+			kh.showButton.setEnabled(false);
+			kh.updateButton.setEnabled(false);
+			kh.deleteButton.setEnabled(false);
+		}
+		else if(function.equals("Add") || function.equals("Update")){
+
+			kh.addButton.setEnabled(false);
+			kh.showButton.setEnabled(false);
+			kh.updateButton.setEnabled(false);
+			kh.deleteButton.setEnabled(false);
+		}
+		else if(function.equals("Show")){
+
+			kh.addButton.setEnabled(true);
+			kh.showButton.setEnabled(true);
+			kh.updateButton.setEnabled(true);
+			kh.deleteButton.setEnabled(true);
+		}
+	}
 }
